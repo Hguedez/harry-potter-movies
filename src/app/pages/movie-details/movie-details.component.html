@@ -1,0 +1,44 @@
+
+<div class="container">
+    <div class="row">
+        <div class="d-flex align-items-center mt-3 col-1" [routerLink]="['/']" routerLinkActive="router-link-active" style="cursor: pointer;">
+            <i class="fa-solid fa-chevron-left fa-2x me-2"></i>Back
+        </div>
+        <h4 class="text-center my-3">{{movie?.title}}</h4>
+        <div class="col-5 d-flex justify-content-end">
+            <img class="w-50" src="{{movie?.poster}}" alt="">
+        </div>
+        <div class="col-6">
+            {{movie?.summary}}
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center my-3">
+        <h5 class="text-center">Details</h5>
+        <div class="col-7">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th>Box office</th>
+                        <td>{{movie?.box_office | budget}}</td>    
+                    </tr>
+                    <tr>
+                        <th>Budget</th>
+                        <td>{{movie?.budget | budget}}</td>    
+                    </tr>
+                    <tr>
+                        <th>Duration</th>
+                        <td>{{movie?.duration | duration}}</td>    
+                    </tr>
+                    <tr>
+                        <th>Producers</th>
+                        <td>{{movie?.producers}}</td>    
+                    </tr>
+                    <tr>
+                        <th>Cinematographers</th>
+                        <td>{{movie?.cinematographers}}</td>    
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -6,11 +6,15 @@ import { MoviesService } from '../core/services/movies.service'
 import { CoreModule } from '../core/core.module'
 import { DurationPipe } from '../core/utils/pipes/duration.pipe'
 import { SharedModule } from '../shared/shared.module'
+import { MovieDetailsComponent } from './movie-details/movie-details.component'
+import { BudgetPipe } from '../core/utils/pipes/budget.pipe'
 
 @NgModule({
   declarations: [
     MoviesComponent,
-    DurationPipe
+    DurationPipe,
+    MovieDetailsComponent,
+    BudgetPipe
   ],
   providers: [MoviesService],
   imports: [

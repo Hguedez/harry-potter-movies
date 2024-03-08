@@ -23,15 +23,9 @@
             <div class="card my-2">
                 <div class="card-body">
                     <h5 class="card-title">{{movie.title}}</h5>
-                    <div class="row d-flex justify-content-between">
+                    <div class="row d-flex justify-content-between align-items-center mt-3">
                         <div class="col-3">Release date: {{movie.release_date}}</div>
-                        <div class="col-3">Budget: 
-                            <ng-container *ngIf="movie.budget.includes('-'); else singleBudget">
-                                {{movie.budget.split('-')[0] | currency:'USD':'symbol':'1.0-0'}} - {{movie.budget.split('-')[1] | currency:'USD':'symbol':'1.0-0'}}
-                            </ng-container>
-                            <ng-template #singleBudget>{{movie.budget | currency:'USD':'symbol':'1.0-0'}}</ng-template>
-                            million
-                        </div>
+                        <div class="col-3">Budget: {{movie.budget | budget}}</div>
                         <div class="col-3">Duration: {{movie.duration | duration}}</div>
                         <div class="col-3">
                             <button class="btn btn-outline-primary w-100" (click)="goToMovieDetails(movie.id)">Details</button>

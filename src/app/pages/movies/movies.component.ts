@@ -54,17 +54,13 @@ export class MoviesComponent implements OnInit {
     this.router.navigate(['pages/details', movieId]);
   }
 
-  searchMovie(event:any){
-    console.log(event)
-  }
-
   filterMovies() {
-    const title = this.filtersForm.get('Title')?.value;
+    const title = this.filtersForm.get('Title')?.value.toLowerCase();
     const releaseYear = this.filtersForm.get('Release_Year')?.value;
-  
+
     this.filteredMovies = this.movies.filter(movie => {
-      return (!title || movie.title.includes(title)) &&
-             (!releaseYear || movie.release_date.includes(releaseYear));
+      return (!title || movie.title.toLowerCase().includes(title)) &&
+            (!releaseYear || movie.release_date.includes(releaseYear));
     });
   }
 
