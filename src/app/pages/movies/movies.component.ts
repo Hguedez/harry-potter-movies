@@ -25,19 +25,10 @@ export class MoviesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (navigator.serviceWorker.controller) {
-      // Service worker is ready and controlling the page.
-      this.getMovies();
-    } else {
-      // Service worker is not ready, wait for it to be ready.
-      navigator.serviceWorker.ready.then(registration => {
-        // Now the service worker is ready.
-        this.getMovies();
-      });
-    }
+    this.getMovies();
   }
 
-  getMovies(){
+  getMovies(): void {
     this.movieService.getMovies()
     .subscribe({
       next: res => {
@@ -50,11 +41,11 @@ export class MoviesComponent implements OnInit {
     });
   }
 
-  goToMovieDetails(movieId:string){
+  goToMovieDetails(movieId:string): void{
     this.router.navigate(['pages/details', movieId]);
   }
 
-  filterMovies() {
+  filterMovies(): void {
     const title = this.filtersForm.get('Title')?.value.toLowerCase();
     const releaseYear = this.filtersForm.get('Release_Year')?.value;
 

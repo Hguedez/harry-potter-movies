@@ -1,8 +1,8 @@
 export interface MovieDetail {
     id: string;
     title: string;
-    duration?: string;
-    budget?: string;
+    duration: string;
+    budget: string;
     release_date: string;
     box_office: string;
     cinematographers: string[];
