@@ -58,16 +58,16 @@ export class MoviesComponent implements OnInit {
    * Updates 'filteredMovies' with the results.
    */
   filterMovies(): void {
-    const title = this.filtersForm.get('Title')?.value.toLowerCase();
-    const releaseYear = this.filtersForm.get('Release_Year')?.value;
+    const title:string = this.filtersForm.get('Title')?.value.toLowerCase();
+    const releaseYear:number = this.filtersForm.get('Release_Year')?.value;
   
     this.filteredMovies = this.movies.filter(movie => {
-      let year = movie.release_date;
+      let year:string = movie.release_date;
       if(movie.release_date.includes('-')){
         [year] = movie.release_date.split('-');
       }
       return (!title || movie.title.toLowerCase().includes(title)) &&
-            (!releaseYear || year.includes(releaseYear));
+            (!releaseYear || year.includes(releaseYear.toString()));
     });
   }
 
