@@ -28,6 +28,9 @@ export class MoviesComponent implements OnInit {
     this.getMovies();
   }
 
+  /**
+   * Get the list of all Harry Potter movies
+   */
   getMovies(): void {
     this.movieService.getMovies()
     .subscribe({
@@ -41,10 +44,19 @@ export class MoviesComponent implements OnInit {
     });
   }
 
+  /**
+   * Navigates to the movie details page for a given movie.
+   * @param movieId The ID of the movie.
+   */
   goToMovieDetails(movieId:string): void{
     this.router.navigate(['pages/details', movieId]);
   }
 
+  /**
+   * Filters 'movies' based on form input.
+   * Keeps movies with matching title and release year.
+   * Updates 'filteredMovies' with the results.
+   */
   filterMovies(): void {
     const title = this.filtersForm.get('Title')?.value.toLowerCase();
     const releaseYear = this.filtersForm.get('Release_Year')?.value;

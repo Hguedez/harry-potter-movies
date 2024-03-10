@@ -12,6 +12,10 @@ export class MoviesService {
 
   constructor(private http: HttpClient) { }
 
+  /**
+   * Fetches all movies from '/movies'. Retries thrice on failure.
+   * @returns An Observable of Movie[].
+   */
   getMovies(): Observable<Movie[]> {
     return this.http.get<Movie[]>('/movies').pipe(
       retryWhen(errors =>
@@ -24,6 +28,10 @@ export class MoviesService {
     )
   }
 
+  /**
+   * Fetches the details of a movie by ID. Retries thrice on failure.
+   * @returns MovieDetail Observable.
+   */
   getMovieDetails(movieId: string): Observable<MovieDetail> {
     return this.http.get<MovieDetail>(`/movies/${movieId}`).pipe(
       retryWhen(errors =>

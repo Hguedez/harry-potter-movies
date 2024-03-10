@@ -34,6 +34,9 @@ export class MovieDetailsComponent {
     this.getMovie()
   }
 
+  /**
+   * Get the details of a specific movie based on the movie ID
+   */
   getMovie(): void{
     this.movieService.getMovieDetails(this.movieId)
     .subscribe({
